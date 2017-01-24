@@ -1,5 +1,5 @@
 # alma-spine-label-printing
-Printing spine labels from ExLibris Alma
+<strong>Printing spine labels from ExLibris Alma</strong>
 
 The application consists of the following components:
 - A (potentially cronjob-triggered) daily request for newly inventoried items via the Analytics API (returning the item barcodes).
