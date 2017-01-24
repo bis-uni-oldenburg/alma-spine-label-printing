@@ -16,6 +16,7 @@ The application runs on a Linux server with PHP installed. It is still work in p
 - Create an analysis and select "Physical items" as subject area.
 - Under "Criteria", select at least the "Barcode" and the "InventoryDate" column (both from "Physical Item Details").
 - Choose a name for the analysis and save it in "Shared Folders/YOUR_INSTITUTION/reports".
+- Copy the "path" parameter from the analysis' url (for example "%2Fshared%2FYOUR_INSTITUTION%2FReports%2FInventoryPerDay"). You'll need it when configuring the alma-spine-label-printing application.
 
 <strong>Installation:</strong>
 - Install CUPS on your Linux server.
