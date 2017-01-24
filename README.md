@@ -19,6 +19,6 @@ The application runs on a Linux server with PHP installed. It is still work in p
 
 <strong>Installation:</strong>
 - Install CUPS on your Linux server.
-- Copy or clone the alma-spine-label-printing directory to your /var directory.
+- Copy or clone the alma-spine-label-printing directory to your server's <pre>/var</pre> directory.
 - Edit your httpd.conf to make the alma-spine-label-printing/www directory accessible via www.
 - Customize the config.ini file.
