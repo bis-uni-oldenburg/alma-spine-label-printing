@@ -11,9 +11,9 @@ The application consists of the following components:
 The application runs on a Linux server with PHP installed. It is still work in progress and therefore has not yet been tested properly.
 
 <strong>Preparations:</strong>
-- Go to https://developers.exlibrisgroup.com, log in to your institution's developer account and create applications both for the Analytics and for the Bibs API.
-- Create an analysis in Alma Analytics. 
-- Select "Physical items" as subject area.
+- Go to https://developers.exlibrisgroup.com, log in to your institution's developer account and create applications both for the Analytics and for the Bibs API. You will need the applications' API keys when customizing the alma-spine-label-printing/config.ini.
+- Log in to Alma and open Alma Analytics.
+- Create an analysis and select "Physical items" as subject area.
 - Under "Criteria", select at least the "Barcode" and the "InventoryDate" column (both from "Physical Item Details").
 - Choose a name for the analysis and save it in "Shared Folders/YOUR_INSTITUTION/reports".
 
