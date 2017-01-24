@@ -4,9 +4,9 @@
 The application consists of the following components:
 - A (potentially cronjob-triggered) daily request for newly inventoried items via the Analytics API (returning the item barcodes).
 - A Bibs API request for each barcode returning the item details needed for the label (which are: call number, alternative call number, author, title).
-- Parsing and formatting call number, title, and author information to fit in our spine labels.
+- Parsing and formatting call number, title, and author information to fit in the spine labels.
 - Generating ZPL (Zebra Programming Language) print commands for each label.
-- Sending the commands to our Zebra label printers via CUPS.
+- Sending the commands to Zebra label printers via CUPS.
 
 The application runs on a Linux server with PHP installed. It is still work in progress and therefore has not yet been tested properly.
 
