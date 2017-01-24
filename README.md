@@ -2,6 +2,7 @@
 Printing spine labels from ExLibris Alma
 
 The application consists of the following components:
+
 1. A (potentially cronjob-triggered) daily request for newly inventoried items via the Analytics API (returning the item barcodes).
 
 2. A Bibs API request for each barcode returning the item details needed for the label (which are: call number, alternative call number, author, title).
