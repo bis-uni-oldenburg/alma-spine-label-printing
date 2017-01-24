@@ -13,5 +13,14 @@ The application consists of the following components:
 
 5. Sending the commands to our Zebra label printers via CUPS.
 
-The application runs on a Linux web server using PHP. It is still work in progress and therefore has not yet been tested properly.
+The application runs on a Linux server with PHP installed. It is still work in progress and therefore has not yet been tested properly.
 
+Preparation:
+- 
+
+Installation:
+
+- Install CUPS on your Linux server.
+- Copy or clone the alma-spine-label-printing directory to your /var directory.
+- Edit your httpd.conf to make the alma-spine-label-printing/www directory accessible via www.
+- Customize the config.ini file.
