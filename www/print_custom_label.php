@@ -66,7 +66,7 @@ div.monospace {
 	margin-top: 16px;
 }
 </style>
-<script src="../jquery/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script language="javascript">
 function Print()
 {
@@ -216,14 +216,14 @@ else if($mode == 2)
 ?>
 	<form class="form" name="label_data" method="GET" action="custom.php">
 	<table>
-	<tr class="headline"><td><input name="barcode" id="barcode" placeholder="Barcode" type="text" value="<?php echo $barcode; ?>" /></td><td><button type="button" onclick="GetLinesByBarcode()">Daten ermitteln</button></td></tr>
+	<tr class="headline"><td><input name="barcode" id="barcode" placeholder="Barcode" type="text" value="<?php echo $barcode; ?>" /></td><td><button type="button" onclick="GetLinesByBarcode()">Retrieve data</button></td></tr>
 	
-	<tr><td><input name="title_line1" type="text" placeholder="Author/Title, Row 1" value="<?php echo $title_line1; ?>" /></td><td><input name="call_number_line1" placeholder="Signatur, Zeile 1" type="text" value="<?php echo $call_number_line1; ?>" /></td></tr>
-	<tr><td><input name="title_line2" type="text" placeholder="Author/Title, Row" value="<?php echo $title_line2; ?>" /></td><td><input name="call_number_line2" placeholder="Signatur, Zeile 2" type="text" value="<?php echo $call_number_line2; ?>" /></td></tr>
-	<tr><td>&nbsp;</td><td><input name="call_number_line3" placeholder="Call number, Row 3" type="text" value="<?php echo $call_number_line3; ?>" /></td></tr>
-	<tr><td>&nbsp;</td><td><input name="call_number_line4" placeholder="Call number, Row 4" type="text" value="<?php echo $call_number_line4; ?>" /></td></tr>
-	<tr><td><input name="barcode_line" placeholder="Barcode" type="text" value="<?php echo $barcode; ?>" /></td><td><input name="call_number_line5" placeholder="Signatur, Zeile 5" type="text" value="<?php echo $call_number_line5; ?>" /></td></tr>
-	<tr><td><button type="submit">Vorschau</button></td>&nbsp;<td></td></tr>
+	<tr><td><input name="title_line1" type="text" placeholder="Author/Title, line 1" value="<?php echo $title_line1; ?>" /></td><td><input name="call_number_line1" placeholder="Call number, line 1" type="text" value="<?php echo $call_number_line1; ?>" /></td></tr>
+	<tr><td><input name="title_line2" type="text" placeholder="Author/Title, line 2" value="<?php echo $title_line2; ?>" /></td><td><input name="call_number_line2" placeholder="Call number, line 2" type="text" value="<?php echo $call_number_line2; ?>" /></td></tr>
+	<tr><td>&nbsp;</td><td><input name="call_number_line3" placeholder="Call number, line 3" type="text" value="<?php echo $call_number_line3; ?>" /></td></tr>
+	<tr><td>&nbsp;</td><td><input name="call_number_line4" placeholder="Call number, line 4" type="text" value="<?php echo $call_number_line4; ?>" /></td></tr>
+	<tr><td><input name="barcode_line" placeholder="Barcode" type="text" value="<?php echo $barcode; ?>" /></td><td><input name="call_number_line5" placeholder="Call number, line 5" type="text" value="<?php echo $call_number_line5; ?>" /></td></tr>
+	<tr><td><button type="submit">Preview</button></td>&nbsp;<td></td></tr>
 	</table>
 	<input name="print" type="hidden" value="0" />
 	<input name="mode" type="hidden" value="2" />
@@ -235,7 +235,7 @@ if($valid)
 {
 ?>
 <div class="zpl">
-	<strong>ZPL-Druckjob:</strong>
+	<strong>ZPL print job:</strong>
 	<div class="monospace">
 <?php
 	echo str_replace(BookLabel::GetLineSeparator(), "<br>", $book_label);
@@ -258,7 +258,7 @@ if($valid)
 
 		
 ?>
-<div class="print-command"><strong>Druck-Befehl:</strong> <span class="monospace"><?php echo $printjob->GetCommand(); ?></span></div>
+<div class="print-command"><strong>Print command:</strong> <span class="monospace"><?php echo $printjob->GetCommand(); ?></span></div>
 <?php 
 		}
 	}
@@ -268,14 +268,15 @@ if($valid)
 <img src="<?php echo $book_label->GetPreviewImageSource(); ?>" width="690px" height="200px" style="display: block; margin-top: 12px; border: 1px solid #ccc" />
 </div>
 <div class="print">
-Drucker: 
+Printer: 
 <select name="printer">
-	<option selected value="0">[Bitte auswählen]</option>
-	<option value="BIS_ZEBRA_Erwerbung_1006332">Zebra-Drucker, Erwerbung (1006332)</option>
-	<option value="edv_referat1">HP Laserjet, EDV (Test)</option>
-	<option value="ZI_HP_LJ_402">HP Laserjet, ZI</option>
+<!-- CUPS name of printer -->
+	<option selected value="0">[Please select]</option>
+	<option value="zebra_sample_printer1">Zebra Printer 1</option>
+	<option value="zebra_sample_printer2">Zebra Printer 2</option>
+	<option value="zebra_sample_test_printer">Zebra Test Printer</option>
 </select>
-<button onclick="Print()">Drucken</button>
+<button onclick="Print()">Print</button>
 </form>
 <?php 
 	
