@@ -1,5 +1,5 @@
 # alma-spine-label-printing
-<strong>Printing spine labels from ExLibris Alma</strong>
+<strong>Printing spine labels for ExLibris Alma bib items</strong>
 
 The application consists of the following components:
 - A (potentially cronjob-triggered) daily request for newly inventoried items via the Analytics API (returning the item barcodes).
@@ -23,3 +23,9 @@ The application runs on a Linux server with PHP installed. It is still work in p
 - Copy or clone the alma-spine-label-printing directory to your server's /var directory.
 - Edit your httpd.conf to make the alma-spine-label-printing/www directory accessible via www.
 - Customize the config.ini file.
+
+<strong>Usage:</strong>
+- Define your own spine labels by editing classes/class.BookLabel.php. 
+- Define a cronjob on your server that executes printjob.php daily.
+- Open www/print_custom_label.php in browser to create custom spine labels.
+- Restrict access to the www directory via .htaccess.
