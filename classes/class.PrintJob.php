@@ -14,7 +14,7 @@ class PrintJob
 		
 		$date = date("Y-m-d");
 		if($custom) $date .= $custom;
-		$this->file = Config::Get("LABEL_FILE_PATH") . "labels_$date" . ".job";
+		$this->file = Config::Get("APP_PATH") . "/" . Config::Get("LABEL_FILE_PATH") . "labels_$date" . ".job";
 		
 		$file_written = $this->WriteFile();
 		
@@ -56,7 +56,7 @@ class PrintJob
 	
 	private function LogError($error)
 	{
-		$log_file = Config::Get("ERROR_LOG_PATH");
+		$log_file = Config::Get("APP_PATH") . "/" . Config::Get("ERROR_LOG_PATH");
 		
 		$timestamp = date("Y-m-d H:i:s");
 		$success = file_put_contents($log_file, $timestamp . " - ". $error . " - PRINTER:" . $this->printer . "\n", FILE_APPEND);
