@@ -21,18 +21,4 @@ else $printer = $zebra_printer;
 // Print the labels via CUPS
 $printjob = new PrintJob($book_label_list, $printer);
 $feedback = $printjob->Execute();
-
-// Save printjob to database
-if(Config::Get("SAVE_PRINTJOBS"))
-{
-	if(!$printjob->Failed())
-	{
-		foreach($book_label_list->GetItems() as $label)
-		{
-			BookLabelStorage::Save($label, $feedback);
-		}
-	}
-}
-
-
 ?>
