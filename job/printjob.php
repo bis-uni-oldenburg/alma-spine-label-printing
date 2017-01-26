@@ -1,11 +1,7 @@
 <?php 
-<<<<<<< HEAD
+
 // Print book labels 
 include '../classes/autoload.php'; 
-=======
-// Print book labels
-include 'classes/autoload.php';
->>>>>>> branch 'master' of https://github.com/bis-uni-oldenburg/alma-spine-label-printing.git
 
 $DEBUG = false;
 
