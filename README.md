@@ -27,9 +27,11 @@ The application runs on a Linux server with PHP installed. It is still work in p
 - Copy or clone the alma-spine-label-printing directory to your server's /var directory.
 - Edit your httpd.conf to make the alma-spine-label-printing/www directory accessible via www.
 - Customize the config.ini file.
+- Restrict access to the www directory via .htaccess.
+- Grant the appropiate permissions for log and labels_zpl directory.
 
 <strong>Usage:</strong>
 - Define your own spine labels by editing classes/class.BookLabel.php. 
 - Define a cronjob on your server that executes printjob.php daily.
-- Open www/print_custom_label.php in browser to create custom spine labels.
-- Restrict access to the www directory via .htaccess.
+- Web frontend: Open www/print_custom_label.php in browser to print custom spine labels.
+
