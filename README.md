@@ -1,6 +1,10 @@
 # alma-spine-label-printing
 <strong>Printing spine labels for ExLibris Alma bib items</strong>
 
+<strong>Purpose:</strong>
+- Automatically print spine labels for currently inventoried items
+- Print custom spine labels via web frontend.
+
 The application consists of the following components:
 - A (potentially cronjob-triggered) daily request for newly inventoried items via the Analytics API (returning the item barcodes).
 - A Bibs API request for each barcode returning the item details needed for the label (which are: call number, alternative call number, author, title).
