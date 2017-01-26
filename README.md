@@ -32,6 +32,5 @@ The application runs on a Linux server with PHP installed. It is still work in p
 
 <strong>Usage:</strong>
 - Define your own spine labels by editing classes/class.BookLabel.php. 
-- Define a cronjob on your server that executes printjob.php daily.
+- Define a cronjob on your server that executes job/printjob.php daily.
 - Web frontend: Open www/print_custom_label.php in browser to print custom spine labels.
-

@@ -1,6 +1,6 @@
 <?php 
-// Print book labels
-include 'classes/autoload.php';
+// Print book labels 
+include '../classes/autoload.php'; 
 
 $DEBUG = false;
 
