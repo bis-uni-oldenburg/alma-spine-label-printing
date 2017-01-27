@@ -168,7 +168,7 @@ if($mode == 1)
 
 	}	
 	?>
-	<form class="form" name="label_data" method="GET" action="print_custom_label.php">
+	<form class="form" name="label_data" method="GET" action="custom.php">
 	<table>
 	<tr><td>Barcode</td><td><input name="barcode" id="barcode" type="text" value="<?php echo $barcode; ?>" /></td><td><button type="button" onclick="GetItemByBarcode()">Daten ermitteln</button></td></tr>
 	<tr><td>Title</td><td><input name="title" type="text" value="<?php echo $title; ?>" /></td><td>&nbsp;</td></tr>
