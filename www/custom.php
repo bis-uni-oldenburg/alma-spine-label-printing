@@ -135,7 +135,7 @@ function GetLinesByBarcode()
 
 <?php 
 // Print book labels
-include '../classes/autoload.php';
+include dirname( dirname(__FILE__) ) . '/classes/autoload.php'; 
 
 if(!isset($_GET["mode"])) $mode = 1;
 else $mode = $_GET["mode"];
@@ -170,7 +170,7 @@ if($mode == 1)
 	?>
 	<form class="form" name="label_data" method="GET" action="custom.php">
 	<table>
-	<tr><td>Barcode</td><td><input name="barcode" id="barcode" type="text" value="<?php echo $barcode; ?>" /></td><td><button type="button" onclick="GetItemByBarcode()">Daten ermitteln</button></td></tr>
+	<tr><td>Barcode</td><td><input name="barcode" id="barcode" type="text" value="<?php echo $barcode; ?>" /></td><td><button type="button" onclick="GetItemByBarcode()">Retrieve data</button></td></tr>
 	<tr><td>Title</td><td><input name="title" type="text" value="<?php echo $title; ?>" /></td><td>&nbsp;</td></tr>
 	<tr><td>Author</td><td><input name="author" type="text" value="<?php echo $author; ?>" /></td><td>&nbsp;</td></tr>
 	<tr><td>Call number</td><td><input name="call_number" type="text" value="<?php echo $call_number; ?>" /></td><td>&nbsp;</td></tr>
@@ -251,7 +251,7 @@ if($valid)
 		
 		if($printer)
 		{
-			$printjob = new PrintJob($book_label, $printer, "-" . $barcode);
+			$printjob = new PrintJob($book_label, $printer, $barcode);
 			if($print) $printjob->Execute();
 
 	
@@ -264,7 +264,7 @@ if($valid)
 	}
 ?>
 <div class="preview">
-<Strong>Vorschau:</Strong><br />
+<Strong>Preview:</Strong><br />
 <img src="<?php echo $book_label->GetPreviewImageSource(); ?>" width="690px" height="200px" style="display: block; margin-top: 12px; border: 1px solid #ccc" />
 </div>
 <div class="print">
@@ -272,9 +272,16 @@ Printer:
 <select name="printer">
 <!-- CUPS name of printer -->
 	<option selected value="0">[Please select]</option>
-	<option value="zebra_sample_printer1">Zebra Printer 1</option>
-	<option value="zebra_sample_printer2">Zebra Printer 2</option>
-	<option value="zebra_sample_test_printer">Zebra Test Printer</option>
+<?php 
+$printers = Config::Get("PRINTERS");
+
+foreach($printers as $printer)
+{
+?>
+	<option value="<?php echo $printer; ?>"><?php echo $printer; ?></option>
+<?php 
+}
+?>
 </select>
 <button onclick="Print()">Print</button>
 </form>

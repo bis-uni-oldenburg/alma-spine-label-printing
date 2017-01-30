@@ -1,25 +1,38 @@
 <?php 
+// Print spine labels 
+include dirname( dirname(__FILE__) ) . '/classes/autoload.php'; 
 
-// Print book labels 
-include '../classes/autoload.php'; 
+$DEBUG = true;
 
-$DEBUG = false;
-
-$yesterday = date("Y-m-d", strtotime("-1 day"));
+// Take date from command line if supplied
+if(isset($argv[1])) 
+{	
+	$date = $argv[1];
+}
+// ... otherwise take yesterday's date
+else $date = date("Y-m-d", strtotime("-1 day"));
 
 // Get newly inventoried items from Alma Analytics
-$ipd = new AlmaInventoryPerDate($yesterday);
+$ipd = new AlmaInventoryPerDate($date);
+
+if(!count($ipd->GetBarcodes()))
+{
+	echo "No items available for $date.\n";
+	exit;
+}
 
 // Get List of ZPL print commands
 $book_label_list = new BookLabelList($ipd->GetBarcodes());
 
-$zebra_printer = "ZEBRA_PRINTER";
-$debug_printer = "DEBUG_PRINTER";
+// Get available printers
+if(!$DEBUG) $printers = Config::Get("PRINTERS");
+else $printers = Config::Get("DEBUG_PRINTERS");
 
-if($DEBUG) $printer = $debug_printer;
-else $printer = $zebra_printer;
+$printer = $printers[0];
 
 // Print the labels via CUPS
-$printjob = new PrintJob($book_label_list, $printer);
+$printjob = new PrintJob($book_label_list, $printer, $date);
 $feedback = $printjob->Execute();
+
+echo $feedback . "\n";
 ?>
