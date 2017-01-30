@@ -34,4 +34,6 @@ The application runs on a Linux server with PHP installed. It is still work in p
 <strong>Usage:</strong>
 - Define your own spine labels by editing classes/class.BookLabel.php. 
 - Define a cronjob on your server that executes job/printjob.php daily.
-- Web frontend: Open www/print_custom_label.php in browser to print custom spine labels.
+- Web frontend: Open www/print_custom_label.php in browser to print custom spine labels. Spine labels can be previewed making use of the ZPL web service on http://api.labelary.com/
+Example: 
+http://api.labelary.com/v1/printers/8dpmm/labels/4.6x1.4/0/%5Exa%5ELL280%5ECI28%5EAD%5EFO70,32%5EFDTranskulturalit%C3%A4t%20und%5EFS%5EAD%5EFO70,54%5EFDMusikvermittlung%5EFS%5EAG%5EFO650,22%5EFDmus%5EFS%5EAD,36,20%5EFO650,94%5EFD104.1%5EFS%5EAD,36,20%5EFO650,130%5EFD%5EFS%5EAD,36,20%5EFO650,178%5EFDCX%208511%5EFS%5EAD,36,20%5EFO650,222%5EFDb%5EFS%5EFO70,80%5EBY2%5EB3,,116,N%5EFD2424591X%5EFS%5EAE%5EFO70,204%5EFD*2424591X*%5EFS%5EAB%5EFO282,212%5EFDUB%20Oldenburg%5EFS%5EXZ
