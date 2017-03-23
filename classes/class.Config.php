@@ -2,13 +2,13 @@
 class Config
 {
 	private static $CONFIG = null;
-	private static $CONFIG_FILE_PATH = "../config.ini";
+	private static $CONFIG_FILE_PATH = "config.ini";
 
 	public static function Get($key)
 	{
-		if($CONFIG == null) $CONFIG = parse_ini_file(self::$CONFIG_FILE_PATH);
+		if(self::$CONFIG == null) self::$CONFIG = parse_ini_file(self::$CONFIG_FILE_PATH);
 		
-		return $CONFIG[$key];
+		return self::$CONFIG[$key];
 	}
 }
 ?>
